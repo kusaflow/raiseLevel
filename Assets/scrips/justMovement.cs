@@ -14,12 +14,16 @@ public class justMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (rb.velocity.x >= 20)
+            rb.velocity = new Vector2(20, rb.velocity.y);
+       
     }
 
     private void FixedUpdate()
     {
-        rb.AddForce(new Vector2(5, 1.5f));
+        rb.AddForce(new Vector2(0, 2f));
+        rb.angularVelocity = -1000;
+        //rb.AddTorque(-7);
     }
 
 }

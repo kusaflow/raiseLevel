@@ -31,7 +31,7 @@ public class proGenLevel : MonoBehaviour
             nextMil = CurrDrawPos;
             for (int i = 0; i < 100; i++)
             {
-                GameObject instance = (GameObject)Instantiate(preF, new Vector3(CurrDrawPos, 0, 0), new Quaternion());
+                GameObject instance = (GameObject)Instantiate(preF, new Vector3(CurrDrawPos,0, 0), new Quaternion());
                 CurrDrawPos += inc;
             }
         }   

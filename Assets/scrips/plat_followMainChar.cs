@@ -2,24 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class followMainPlayer : MonoBehaviour
+public class plat_followMainChar : MonoBehaviour
 {
 
     public GameObject player;
 
+    public float ypos = 0;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
         Vector3 playerPos = player.transform.position;
-        playerPos.z = -1;
-        playerPos.x += 8;
-        playerPos.y += 2;
+        playerPos.z = 1;
+        playerPos.y = ypos;
         transform.position = playerPos;
     }
 }

@@ -10,6 +10,8 @@ public class updown : MonoBehaviour
     public float orgSize;
     public float zScale;
 
+    //testing 
+    bool doChange = false;
 
 
     void Start()
@@ -22,10 +24,41 @@ public class updown : MonoBehaviour
     void Update()
     {
         //transform.Translate(new Vector3(0, 1 * Time.deltaTime, 0));
+        posY = transform.position.y;
+
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            doChange = true;
+        }
+        if (Input.GetMouseButtonUp(0))
+        {
+            doChange = false;
+        }
+
+
+
+        if (doChange)
+        {
+            Vector3 mouseP = Input.mousePosition;
+            Vector3 mousePos = Camera.main.ScreenToWorldPoint(mouseP);
+            mousePos.z = 0;
+            //Debug.Log(Touchpos);
+            if (mousePos.x > posX - 0.2 && mousePos.x < posX + 0.2)
+            {
+                mousePos.x = posX;
+                if (mousePos.y >= 9)
+                    mousePos.y = 9;
+                if (mousePos.y <= -1)
+                    mousePos.y = -1;
+                transform.position = mousePos;
+            }
+            
+        }
+
 
         if (Input.touchCount > 0)
         {
-            posY = transform.position.y;
             Touch touch = Input.GetTouch(0);
             Vector3 Touchpos = Camera.main.ScreenToWorldPoint(touch.position);
             Touchpos.z = 0;
