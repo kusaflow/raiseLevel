@@ -21,7 +21,7 @@ public class justMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rb.AddForce(new Vector2(0, 2f));
+        rb.AddForce(new Vector2(0, 5f));
         rb.angularVelocity = -1000;
         //rb.AddTorque(-7);
     }
