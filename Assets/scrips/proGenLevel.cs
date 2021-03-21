@@ -18,8 +18,8 @@ public class proGenLevel : MonoBehaviour
     void Start()
     {
         CurrDrawPos = 5;
-        nextMil = 40;
-        for (int i =0; i<300; i++)
+        nextMil = 70;
+        for (int i =0; i<500; i++)
         {
             GameObject instance = (GameObject)Instantiate(preF, new Vector3(CurrDrawPos, 0, 0), new Quaternion());
             plat.Enqueue(instance);
@@ -35,8 +35,34 @@ public class proGenLevel : MonoBehaviour
         if (nextMil <= transform.position.x)
         {
             bool isPowerDroped = false;
+            int div = 6;
+            if (nextMil >= 100)
+            {
+                div = 5;
+            }else if (nextMil >= 200)
+            {
+                div = 4;
+            }else if (nextMil >= 300)
+            {
+                div = 3;
+            }else if (nextMil >= 500)
+            {
+                div = 2;
+            }
+
+            if ((int)(Random.Range(1, 17)) % 2 == 0)
+                isPowerDroped = true;
+
+            if ((int)(Random.Range(1, 17)) % div == 0)
+            {
+                isPowerDroped = true;
+            }
+
+
+
+
             nextMil = CurrDrawPos;
-            for (int i = 0; i < 100; i++)
+            for (int i = 0; i < 200; i++)
             {
                 GameObject instance = (GameObject)Instantiate(preF, new Vector3(CurrDrawPos,0, 0), new Quaternion());
                 plat.Enqueue(instance);

@@ -18,7 +18,7 @@ public class followMainPlayer : MonoBehaviour
     {
         Vector3 playerPos = player.transform.position;
         playerPos.z = -1;
-        playerPos.x += 8;
+        playerPos.x += 12;
         playerPos.y += 2;
         transform.position = playerPos;
     }
